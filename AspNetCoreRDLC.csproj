@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0"/>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0-rc.1.20451.14"/>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0-rc.1.20451.14"/>
+  </ItemGroup>
+</Project>
