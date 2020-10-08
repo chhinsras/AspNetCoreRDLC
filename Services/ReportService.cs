@@ -7,12 +7,13 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace AspNetCoreRDLC.Services
 {
     public class ReportService : IReportService
     {
-        public byte[] GenerateReportAsync(string reportName)
+        public byte[] GenerateReportAsync(string reportName, string fileType)
         {
             string fileDirPath = Assembly.GetExecutingAssembly().Location.Replace("AspNetCoreRDLC.dll", string.Empty);
             string rdlcFilePath = string.Format("{0}ReportFiles\\{1}.rdlc", fileDirPath, reportName);
@@ -47,7 +48,25 @@ namespace AspNetCoreRDLC.Services
             });
 
             report.AddDataSource("dsUsers", userList);
-            var result = report.Execute(GetRenderType("pdf"), 1, parameters);
+
+            ReportResult result;
+
+            if (fileType == "pdf")
+            {
+                result = report.Execute(GetRenderType("pdf"), 1, parameters);
+            }
+            else if (fileType == "excel")
+            {
+                result = report.Execute(GetRenderType("excel"), 1, parameters);
+            }
+            else if (fileType == "word")
+            {
+                result = report.Execute(GetRenderType("word"), 1, parameters);
+            } else
+            {
+                result = report.Execute(GetRenderType("pdf"), 1, parameters);
+            }
+
             return result.MainStream;
         }
 

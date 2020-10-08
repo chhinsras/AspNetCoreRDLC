@@ -17,11 +17,26 @@ namespace AspNetCoreRDLC.Controllers
             _reportService = reportService;
         }
 
-        [HttpGet("{reportName}")]
-        public ActionResult Get(string reportName)
+        [HttpGet]
+        public ActionResult GetT(string reportName)
         {
-            var returnString = _reportService.GenerateReportAsync(reportName);
-            return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".pdf");
+            return Ok("30");
+        }
+
+        [HttpGet("{reportName}/{fileType}")]
+        public ActionResult GetPDF(string reportName, string fileType)
+        {
+            var returnString = _reportService.GenerateReportAsync(reportName, fileType);
+            switch (fileType.ToLower())
+            {
+                default:
+                case "pdf":
+                    return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".pdf");
+                case "word":
+                    return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".doc");
+                case "excel":
+                    return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".xls");
+            }
         }
     }
 }
