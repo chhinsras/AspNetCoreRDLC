@@ -1,6 +1,6 @@
 ﻿using AspNetCore.Reporting;
+using AspNetCoreRDLC.Contracts;
 using AspNetCoreRDLC.Dtos;
-using ReportAPI.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReportAPI.Services
+namespace AspNetCoreRDLC.Services
 {
     public class ReportService : IReportService
     {

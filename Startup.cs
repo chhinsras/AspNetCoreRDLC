@@ -10,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ReportAPI.Contracts;
-using ReportAPI.Services;
+using AspNetCoreRDLC.Contracts;
+using AspNetCoreRDLC.Services;
 
 namespace AspNetCoreRDLC
 {

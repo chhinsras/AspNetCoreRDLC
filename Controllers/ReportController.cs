@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ReportAPI.Contracts;
+using AspNetCoreRDLC.Contracts;
 
-namespace ReportAPI.Controllers
+namespace AspNetCoreRDLC.Controllers
 {
     [Route("api/[controller]")]
     public class ReportController : Controller
