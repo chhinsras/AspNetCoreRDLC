@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreRDLC", "AspNetCoreRDLC.csproj", "{EFEA5FCF-973D-4726-B40D-3F396084DB18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreRDLC", "AspNetCoreRDLC.csproj", "{EFEA5FCF-973D-4726-B40D-3F396084DB18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetReports", "..\AspNetReports\AspNetReports.csproj", "{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EFEA5FCF-973D-4726-B40D-3F396084DB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,23 @@ Global
 		{EFEA5FCF-973D-4726-B40D-3F396084DB18}.Release|x64.Build.0 = Release|Any CPU
 		{EFEA5FCF-973D-4726-B40D-3F396084DB18}.Release|x86.ActiveCfg = Release|Any CPU
 		{EFEA5FCF-973D-4726-B40D-3F396084DB18}.Release|x86.Build.0 = Release|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Debug|x64.Build.0 = Debug|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Debug|x86.Build.0 = Debug|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Release|x64.ActiveCfg = Release|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Release|x64.Build.0 = Release|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DF4D16F-0E95-4ADC-8533-AF3307E69405}
 	EndGlobalSection
 EndGlobal

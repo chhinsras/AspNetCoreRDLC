@@ -21,35 +21,67 @@ namespace AspNetCoreRDLC.Services
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Encoding.GetEncoding("windows-1252");
             LocalReport report = new LocalReport(rdlcFilePath);
-
-            List<UserDto> userList = new List<UserDto>();
-            userList.Add(new UserDto
-            {
-                FirstName = "Alex",
-                LastName = "Smith",
-                Email = "alex.smith@gmail.com",
-                Phone = "2345334432"
-            });
-
-            userList.Add(new UserDto
-            {
-                FirstName = "John",
-                LastName = "Legend",
-                Email = "john.legend@gmail.com",
-                Phone = "5633435334"
-            });
-
-            userList.Add(new UserDto
-            {
-                FirstName = "Stuart",
-                LastName = "Jones",
-                Email = "stuart.jones@gmail.com",
-                Phone = "3575328535"
-            });
-
-            report.AddDataSource("dsUsers", userList);
-
+            
             ReportResult result;
+
+            if (reportName == "UserDetails")
+            {
+                List<UserDto> userList = new List<UserDto>();
+                userList.Add(new UserDto
+                {
+                    FirstName = "Alex ​សិស្សសាលា",
+                    LastName = "Smith",
+                    Email = "alex.smith@gmail.com",
+                    Phone = "2345334432"
+                });
+
+                userList.Add(new UserDto
+                {
+                    FirstName = "John​ កុមារា",
+                    LastName = "Legend",
+                    Email = "john.legend@gmail.com",
+                    Phone = "5633435334"
+                });
+
+                userList.Add(new UserDto
+                {
+                    FirstName = "Stuart",
+                    LastName = "Jones",
+                    Email = "stuart.jones@gmail.com",
+                    Phone = "3575328535"
+                });
+
+                report.AddDataSource("dsUsers", userList);
+
+            } else if (reportName == "UserProfile")
+            {
+                // UserDto userProfile = new UserDto();
+                // userProfile.FirstName = "ឈិន";
+                // userProfile.LastName = "ស្រស់";
+                // userProfile.Email = "john.legend@gmail.com";
+                // userProfile.Phone = "5633435334";
+
+                List<UserDto> userList = new List<UserDto>();
+                userList.Add(new UserDto
+                {
+                    FirstName = "ស្រស់ ​សិស្សសាលា",
+                    LastName = "Chhin",
+                    Email = "chhinsras@gmail.com",
+                    Phone = "017999740"
+                }); 
+                
+                userList.Add(new UserDto
+                {
+                    FirstName = "Alex ​សិស្សសាលា",
+                    LastName = "Smith",
+                    Email = "alex.smith@gmail.com",
+                    Phone = "2345334432"
+                });
+
+                report.AddDataSource("dsUser", userList);
+
+            }
+
 
             if (fileType == "pdf")
             {
@@ -62,12 +94,14 @@ namespace AspNetCoreRDLC.Services
             else if (fileType == "word")
             {
                 result = report.Execute(GetRenderType("word"), 1, parameters);
-            } else
+            }
+            else
             {
                 result = report.Execute(GetRenderType("pdf"), 1, parameters);
             }
 
             return result.MainStream;
+
         }
 
         private RenderType GetRenderType(string reportType)

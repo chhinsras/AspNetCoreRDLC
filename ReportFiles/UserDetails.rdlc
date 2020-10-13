@@ -52,9 +52,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Users Details Report</Value>
+                    <Value>របាយការណ៏អ្នកប្រើប្រាស់</Value>
                     <Style>
-                      <FontFamily>calibri</FontFamily>
+                      <FontFamily>Khmer OS Battambang</FontFamily>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -67,7 +67,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>0.43497cm</Top>
-            <Left>4.37485cm</Left>
+            <Left>6.02641cm</Left>
             <Height>0.6cm</Height>
             <Width>7.93868cm</Width>
             <Style>
@@ -235,7 +235,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!FirstName.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Khmer OS Battambang</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -265,7 +267,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!LastName.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Khmer OS Battambang</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -295,7 +299,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Email.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Khmer OS Battambang</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -325,7 +331,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Phone.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Khmer OS Battambang</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />

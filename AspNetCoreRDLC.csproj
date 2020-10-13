@@ -3,6 +3,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Dtos\UserProfile.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dtos\UserProfile.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="System.CodeDom" Version="4.7.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
@@ -10,7 +16,24 @@
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AspNetReports\AspNetReports.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="dsUser.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsUser.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="dsUser.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUser.Designer.cs</LastGenOutput>
+    </None>
     <None Update="ReportFiles\UserDetails.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ReportFiles\UserProfile.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
