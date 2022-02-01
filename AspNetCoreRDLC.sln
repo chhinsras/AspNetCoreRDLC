@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreRDLC", "AspNetCoreRDLC.csproj", "{EFEA5FCF-973D-4726-B40D-3F396084DB18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetReports", "..\AspNetReports\AspNetReports.csproj", "{2FD2F4D2-6FA5-415B-BB53-E0B7A8D1C000}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
