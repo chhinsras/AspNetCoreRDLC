@@ -36,6 +36,8 @@ namespace AspNetCoreRDLC.Controllers
                     return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".doc");
                 case "excel":
                     return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".xls");
+                case "html":
+                    return File(returnString, System.Net.Mime.MediaTypeNames.Application.Octet, reportName + ".html");
             }
         }
     }

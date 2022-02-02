@@ -1,26 +1,27 @@
-﻿using AspNetCoreRDLC.Contracts;
+﻿using AspNetCore.Reporting;
+using AspNetCoreRDLC.Contracts;
 using AspNetCoreRDLC.Dtos;
-using Microsoft.Reporting.NETCore;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
+using System.Text;
 
+// Using AspNetCore.Reporting Library
 namespace AspNetCoreRDLC.Services
 {
-    public class ReportService : IReportService
+    public class ReportServiceOld : IReportService
     {
         public byte[] GenerateReportAsync(string reportName, string fileType)
         {
             string fileDirPath = Assembly.GetExecutingAssembly().Location.Replace("AspNetCoreRDLC.dll", string.Empty);
             string rdlcFilePath = string.Format("{0}ReportFiles/{1}.rdlc", fileDirPath, reportName);
-         
-            Stream reportDefinition = File.OpenRead(rdlcFilePath); // your RDLC from file or resource
-            IEnumerable dataSource; // your datasource for the report
-            
-            LocalReport report = new LocalReport();
-            report.LoadReportDefinition(reportDefinition);
-            
+
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Encoding.GetEncoding("utf-8");
+            AspNetCore.Reporting.LocalReport report = new AspNetCore.Reporting.LocalReport(rdlcFilePath);
+
+            ReportResult result;
+
             if (reportName == "UserDetails")
             {
                 List<UserDto> userList = new List<UserDto>();
@@ -48,10 +49,7 @@ namespace AspNetCoreRDLC.Services
                     Phone = "3575328535"
                 });
 
-                // report.AddDataSource("dsUsers", userList);
-                dataSource = userList;
-                report.DataSources.Add(new ReportDataSource("dsUsers", dataSource));
-            
+                report.AddDataSource("dsUsers", userList);
 
             } else if (reportName == "UserProfile")
             {
@@ -78,39 +76,50 @@ namespace AspNetCoreRDLC.Services
                     Phone = "2345334432"
                 });
 
-                // report.AddDataSource("dsUser", userList);
-                dataSource = userList;
-                report.DataSources.Add(new ReportDataSource("dsUser", dataSource));
-            
+                report.AddDataSource("dsUser", userList);
 
             }
 
-            // report.SetParameters(new[] { new ReportParameter("Parameter1", "Parameter value") });
-            byte[] result;
+
             if (fileType == "pdf")
             {
-                result = report.Render("PDF");
+                result = report.Execute(GetRenderType("pdf"), 1, parameters);
             }
             else if (fileType == "excel")
             {
-                result = report.Render("EXCEL");
+                result = report.Execute(GetRenderType("excel"), 1, parameters);
             }
             else if (fileType == "word")
             {
-                result = report.Render("WORD");
-            }
-            else if (fileType == "html")
-            {
-                result = report.Render("HTML5");
+                result = report.Execute(GetRenderType("word"), 1, parameters);
             }
             else
             {
-                result = report.Render("PDF");
+                result = report.Execute(GetRenderType("pdf"), 1, parameters);
             }
-            
-            return result;
-        
+
+            return result.MainStream;
+
         }
 
+        private RenderType GetRenderType(string reportType)
+        {
+            var renderType = RenderType.Pdf;
+            switch (reportType.ToLower())
+            {
+                default:
+                case "pdf":
+                    renderType = RenderType.Pdf;
+                    break;
+                case "word":
+                    renderType = RenderType.Word;
+                    break;
+                case "excel":
+                    renderType = RenderType.Excel;
+                    break;
+            }
+
+            return renderType;
+        }
     }
 }

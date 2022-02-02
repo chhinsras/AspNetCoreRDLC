@@ -13,6 +13,7 @@ namespace AspNetCoreRDLC
     {
         public static void Main(string[] args)
         {
+            AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
             CreateHostBuilder(args).Build().Run();
         }
 
