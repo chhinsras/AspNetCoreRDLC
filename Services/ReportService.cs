@@ -48,7 +48,6 @@ namespace AspNetCoreRDLC.Services
                     Phone = "3575328535"
                 });
 
-                // report.AddDataSource("dsUsers", userList);
                 dataSource = userList;
                 report.DataSources.Add(new ReportDataSource("dsUsers", dataSource));
             
@@ -78,7 +77,6 @@ namespace AspNetCoreRDLC.Services
                     Phone = "2345334432"
                 });
 
-                // report.AddDataSource("dsUser", userList);
                 dataSource = userList;
                 report.DataSources.Add(new ReportDataSource("dsUser", dataSource));
             
