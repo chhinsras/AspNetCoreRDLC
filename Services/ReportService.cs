@@ -91,15 +91,15 @@ namespace AspNetCoreRDLC.Services
             }
             else if (fileType == "excel")
             {
-                result = report.Render("EXCEL");
+                result = report.Render("EXCEL"); // WORDOPENXML for cross-plateform
             }
-            else if (fileType == "word")
+            else if (fileType == "word") //EXCELOPENXML for cross-platform 
             {
-                result = report.Render("WORD");
+                result = report.Render("WORDOPENXML");
             }
             else if (fileType == "html")
             {
-                result = report.Render("HTML5");
+                result = report.Render("HTML5"); // HTML4.0 / HTML5 / MHTML for cross-plateform
             }
             else
             {
